@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const AcademicianSchema = mongoose.Schema({
     
@@ -15,6 +15,10 @@ const AcademicianSchema = mongoose.Schema({
     },
     password:{
         type: String,
+        required: true
+    },
+    academician_no:{
+        type: Number,
         required: true
     },
 
@@ -71,11 +75,11 @@ const AcademicianSchema = mongoose.Schema({
         required: true
     },
     n_patent:{
-        type: Boolean,
+        type: Number,
         required: true
     },
     i_patent:{
-        type: Boolean,
+        type: Number,
         required: true
     },
 
@@ -97,6 +101,14 @@ const AcademicianSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+
+
+     /*research_assistant_course_assisting:{
+        type: Number,
+        required: true
+    },*/
+     ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     u_student_count:{
         type: Number,
         required: true
@@ -125,18 +137,15 @@ const AcademicianSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    pos_project_thesis_consultant_count:{
+    pos_project_thesis_co_consultant_count:{
         type: Number,
         required: true
     },
-    phd_project_thesis_consultant_count:{
+    phd_project_thesis_co_consultant_count:{
         type: Number,
         required: true
     },
-    research_assistant_course_assisting:{
-        type: Number,
-        required: true
-    },
+    
     u_student_and_thesis_assignment_result:{
         type: Number,
         required: true
@@ -188,11 +197,111 @@ const AcademicianSchema = mongoose.Schema({
     central_directorate:{
         type: Boolean,
         required: true
+    },
+    vice_central_directorate:{
+        type: Boolean,
+        required: true
+    },
+    coordinatorship:{
+        type: Boolean,
+        required: true
+    },
+    dean:{
+        type: Boolean,
+        required: true
+    },
+    vice_dean:{
+        type: Boolean,
+        required: true
+    },
+    president_of_department:{
+        type: Boolean,
+        required: true
+    },
+    vice_president_of_department:{
+        type: Boolean,
+        required: true
+    },
+    head_of_department:{ // anabilim dalı başkanlığı
+        type: Boolean,
+        required: true
+    },
+    vice_head_of_department:{ // anabilim dalı başkan yardımcılığı
+        type: Boolean,
+        required: true
+    },
+    university_senate_membership:{
+        type: Boolean,
+        required: true
+    },
+    university_board_membership:{
+        type: Boolean,
+        required: true
+    },
+    official_university_study_group_membership:{
+        type: Boolean,
+        required: true
+    },
+    other_university_study_group_membership:{
+        type: Boolean,
+        required: true
+    },
+    faculty_board_membership:{
+        type: Boolean,
+        required: true
+    },
+    official_faculty_study_group_membership:{
+        type: Boolean,
+        required: true
+    },
+    other_faculty_study_group_membership:{
+        type: Boolean,
+        required: true
+    },
+    official_jury_membership:{
+        type: Boolean,
+        required: true
+    },
+    official_referee:{
+        type: Boolean,
+        required: true
+    },
+    presidentship_of_conferance:{
+        type: Boolean,
+        required: true
+    },
+    workshop_presidentship:{
+        type: Boolean,
+        required: true
+    },
+    scientific_meeting_presidentship:{
+        type: Boolean,
+        required: true
+    },
+    SEM_activities:{
+        type: Boolean,
+        required: true
+    },
+    professional_consultant_activities:{
+        type: Boolean,
+        required: true
+    },
+
+
+    // SUCCESS POINT
+    success_coefficient:{
+        type: Number,
+        required:true,
+        default:0
     }
 
+
+    
+    
+    
 
 
 
 
 })
-module.exports = mongoose.model("Academician", AcademicianSchema)
+export default mongoose.model('Academician',AcademicianSchema)

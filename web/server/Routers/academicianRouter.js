@@ -1,10 +1,12 @@
 import express from "express";
 import bcrypt from 'bcryptjs'
 import Academician from '../models/academicianModel.js';
+import mongoose from "mongoose";
+
 
 const router = express.Router();
 
-// localhost:5000/academician/signup 'a yapılan post isteği
+// http://localhost:5000/academician/signup 'a yapılan post isteği
 router.post("/signup", async (req, res)=>{
     try {
         //console.log(req.body)
@@ -29,7 +31,7 @@ router.post("/signup", async (req, res)=>{
     }
 })
 
-// localhost:5000/academician/signin POST request
+// http://localhost:5000/academician/signin POST request
 router.post("/signin", async (req,res)=>{
     try {
         const {email, password} = req.body;

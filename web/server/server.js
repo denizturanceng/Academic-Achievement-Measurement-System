@@ -1,8 +1,8 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-import academicianRouter from './Routers/academicianRouter'
-import adminRouter from './Routers/adminRouter'
+import academicianRouter from './Routers/academicianRouter.js'
+import adminRouter from './Routers/adminRouter.js'
 import cors from 'cors'
 
 dotenv.config()
