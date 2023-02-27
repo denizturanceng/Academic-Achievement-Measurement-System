@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giriş Ekranı</title>
+    <link rel="stylesheet" href="./AdminLogin.css">
+      
+  </head>
+  <body>
+<!--   <link href="style.css" type="text/css" rel="stylesheet"/> -->
+<h1>Lütfen Giriş Yapın</h1>
+
+  <form action="/giris" method="post">
+    <label for="username">Kullanıcı Adı:</label><br>
+    <input type="text" id="usernameInput" name="username"><br>
+    <label for="password">Parola:</label><br>
+    <input type="password" id="passwordInput" name="password"><br><br>
+
+    <label for="user_type">Kullanıcı Türü:</label><br>
+    <select id="user_type" name="user_type">
+      <option value="admin">Akademisyen</option>
+      <option value="teacher">Admin</option>
+    </select><br><br>
+
+    <button type="submit" onclick="submitForm()">Giriş Yap</button>
+  </form>
+  <script>
+    function submitForm() {
+      // Form verilerini al
+      const username = document.getElementById("usernameInput").value;
+      const password = document.getElementById("passwordInput").value;
+    
+      // API çağrısını yap
+      fetch("http://localhost:5000/admin/signin", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            // Oturum aç
+            alert("Başarıyla giriş yaptınız!");
+          } else {
+            // Hatalı kimlik bilgileri
+            alert("Kullanıcı adı veya şifre hatalı!");
+          }
+        })
+        .catch((error) => {
+          // API hatası
+          alert("API çağrısı sırasında hata oluştu!");
+        });
+    }
+    </script>
+  
+
+
+
+  </body>
+</html> 

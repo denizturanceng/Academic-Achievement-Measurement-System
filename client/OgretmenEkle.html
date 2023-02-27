@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Akademisyen ekle</title>
+<link rel="stylesheet" href="OgretmenEkle.css">
+  </head>
+  <!-- Öğretmen ekleme sayfasını oluştur -->
+  <body>
+
+
+    <!-- Öğretmen ekleme sayfasını düzenle -->
+    <h1>Akademisyen Ekle</h1>
+    
+    <!-- Öğretmen adı ve şifresi giriş alanlarını oluştur -->
+    <label>Akademisyen Adı:</label><br>
+    <input type="text" name="ogretmen_adi"><br>
+    <label>Akademisyen No:</label><br>
+    <input type="password" name="sifre"><br>
+    
+    
+    
+    <!-- fakülte bilgisini ve bölüm bilgisini al -->
+    <!-- Fakülte seçimi -->
+
+<label for="fakulte">Fakülte:</label>
+<select id="fakulte" name="fakulte">
+  <option value="-"></option>
+  <option value="fen-edebiyat">Fen Edebiyat Fakültesi</option>
+  <option value="hukuk">Hukuk Fakültesi</option>
+  <option value="muhendislik-ve-mimarlik">Mühendislik ve Mimarlık Fakültesi</option>
+  <option value="saglik-bilimleri">Sağlık Bilimleri Fakültesi</option>
+  <option value="iktisadi-ve-idari-bilimler">İktisadi ve İdari Bilimler Fakültesi</option>
+  <option value="tip">Tıp Fakültesi</option>
+  <option value="eczacilik">Eczacılık Fakültesi</option>
+</select>
+<!-- Bölüm seçimi -->
+<label for="bolum">Bölüm:</label>
+<select id="bolum" name="bolum" disabled>
+  <!-- Bölüm seçenekleri fakülte seçimine göre dinamik olarak doldurulacak -->
+</select>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- öğretmen türü belirle -->
+    <label for="user_type">Akademisyen Türü:</label><br>
+    <select id="user_type" name="user_type">
+      <option value="-"></option>
+      <option value="akademisyen">Öğretim Üyesi</option>
+      <option value="arastirmaGorevlisi">Araştırma Görevlisi</option>
+      <option value="tipHocasi">Tıp Fakültesi Öğretim Elemanı</option>
+      <option value="deneme">Öğretim Görevlisi</option>
+    </select><br><br>
+    
+    
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <details id="arastirmaFaaliyeti" style="display: none">
+      <summary>Araştırma Faaliyeti Ekle</summary>
+      <details>
+        <summary>Makale Ekle</summary>
+        
+      <label for="makaleSayisiUlusal">Ulusal Makale Sayısı:</label>
+      <input type="number" id="makaleSayisiUlusal" name="makaleSayisiUlusal" min="0"><br>
+      
+      <label for="makaleSayisiUluslararasi">Uluslararası Makale Sayısı:</label>
+      <input type="number" id="makaleSayisiUluslararasi" name="makaleSayisiUluslararasi" min="0"><br>
+      
+      <label for="makaleSayisiUluslararasiQ">Q1 ve Q2 değerine sahip olan dergilerde yayımlanan Uluslararası Makale Sayısı:</label>
+      <input type="number" id="makaleSayisiUluslararasiQ" name="makaleSayisiUluslararasiQ" min="0"><br>
+      
+      </details>
+      <details>
+        <summary>Kitap Ekle</summary>
+      <label for="kitapSayisiUlusal">Ulusal Kitap Sayısı:</label>
+      <input type="number" id="kitapSayisiUlusal" name="kitapSayisiUlusal" min="0"><br>
+      
+      <label for="kitapSayisiUluslararasi">Uluslararası Kitap Sayısı:</label>
+      <input type="number" id="kitapSayisiUluslararasi" name="kitapSayisiUluslararasi" min="0"><br>
+      </details>
+  
+    <details>
+        <summary>Kitap Bölümü Ekle</summary>
+      <label for="kitapBolumSayisiUlusal">Ulusal Kitap Bölümü Sayısı:</label>
+      <input type="number" id="kitapBolumSayisiUlusal" name="kitapBolumSayisiUlusal" min="0"><br>
+  
+      <label for="kitapBolumSayisiUluslararasi">Uluslararası Kitap Bölümü Sayısı:</label>
+      <input type="number" id="kitapBolumSayisiUluslararasi" name="kitapBolumSayisiUluslararasi" min="0"><br>
+      </details>
+      
+      <details>
+        <summary>Bildiri Ekle</summary>
+      <label for="bildiriSayisiUlusal">Ulusal Bildiri Sayısı:</label>
+      <input type="number" id="bildiriSayisiUlusal" name="bildiriSayisiUlusal" min="0"><br>
+      
+      <label for="bildiriSayisiUluslararasi">Uluslararası Bildiri Sayısı:</label>
+      <input type="number" id="bildiriSayisiUluslararasi" name="bildiriSayisiUluslararasi" min="0"><br>
+      </details>
+      
+      <details>
+        <summary>Kitap/Dergi Editörlüğü Ekle</summary>
+      <label for="kitapDergiEditorluguSayisiUlusal">Ulusal Kitap/Dergi Editörlüğü Sayısı:</label>
+      <input type="number" id="kitapDergiEditorluguSayisiUlusal" name="kitapDergiEditorluguSayisiUlusal" min="0"><br>
+      
+      <label for="kitapDergiEditorluguSayisiUluslararasi">Uluslararası Kitap/Dergi Editörlüğü Sayısı:</label>
+      <input type="number" id="kitapDergiEditorluguSayisiUluslararasi" name="kitapDergiEditorluguSayisiUluslararasi" min="0"><br>
+      </details>
+      
+      <details>
+        <summary>Hakemlik Ekle</summary>
+      <label for="hakemlikSayisiUlusal">Ulusal Hakemlik Sayısı:</label>
+      <input type="number" id="hakemlikSayisiUlusal" name="hakemlikSayisiUlusal" min="0"><br>
+      
+      <label for="hakemlikSayisiUluslararasi">Uluslararasi Hakemlik Sayısı:</label>
+      <input type="number" id="hakemlikSayisiUluslararasi" name="hakemlikSayisiUluslararasi" min="0"><br>
+      </details>
+      
+      <details>
+        <summary>Patent Ekle</summary>
+      <label for="patentSayisiUlusal">Ulusal Patent Sayısı:</label>
+      <input type="number" id="patentSayisiUlusal" name="patentSayisiUlusal" min="0"><br>
+      
+      <label for="patentSayisiUluslararasi">Uluslararası Patent Sayısı:</label>
+      <input type="number" id="patentSayisiUluslararasi" name="patentSayisiUluslararasi" min="0"><br>
+      </details>
+      
+    </details>
+  
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    
+    <details id="egitimFaaliyeti" style="display: none">
+      <summary>Eğitim Faaliyeti Ekle</summary>
+      
+      <details>
+        <summary>Ders Sayısı Ekle</summary>
+        <label for="dersSayisiLisans">Lisans Ders Sayısı:</label>
+        <input type="number" id="dersSayisiLisans" name="dersSayisiLisans" min="0"><br>
+        <label for="dersSayisiYLisans">Yüksek Lisans Ders Sayısı:</label>
+        <input type="number" id="dersSayisiYLisans" name="dersSayisiYLisans" min="0"><br>
+        <label for="dersSayisiDoktora">Doktora Ders Sayısı:</label>
+        <input type="number" id="dersSayisiDoktora" name="dersSayisiDoktora" min="0"><br>
+      </details>
+      <details>
+        <summary>Öğrenci Sayısı Ekle</summary>
+        <label for="dersSayisiLisans">Lisans Öğrenci Sayısı:</label>
+        <input type="number" id="dersSayisiLisans" name="dersSayisiLisans" min="0"><br>
+        <label for="dersSayisiYLisans">Yüksek Lisans Öğrenci Sayısı:</label>
+        <input type="number" id="dersSayisiYLisans" name="dersSayisiYLisans" min="0"><br>
+        <label for="dersSayisiDoktora">Doktora Öğrenci Sayısı:</label>
+        <input type="number" id="dersSayisiDoktora" name="dersSayisiDoktora" min="0"><br>
+      </details>
+      <details>
+        <summary>Proje/Tez Danışmanlığı Sayısı Ekle</summary>
+        <label for="dersSayisiLisans">Lisans Öğrenci Sayısı:</label>
+        <input type="number" id="dersSayisiLisans" name="dersSayisiLisans" min="0"><br>
+        <label for="dersSayisiYLisans">Yüksek Lisans Öğrenci Sayısı:</label>
+        <input type="number" id="dersSayisiYLisans" name="dersSayisiYLisans" min="0"><br>
+        <label for="dersSayisiDoktora">Doktora Öğrenci Sayısı:</label>
+        <input type="number" id="dersSayisiDoktora" name="dersSayisiDoktora" min="0"><br>
+      </details>
+      
+      <details>
+        <summary>Değerlendirme Ekle</summary>
+      <label for="ogrenciDegerlendirme">Öğrenci Ders Değerlendirmesi: (1-5)</label>
+      <input type="number" id="ogrenciDegerlendirme" name="ogrenciDegerlendirme" min="1" max="5"><br>
+      </details>
+      
+      <details>
+        <summary>Öğrenci Kulübü Danışmanlığı Ekle</summary>
+      
+      <input type="number" id="ogrenciKulubuDanismanligi" name="ogrenciKulubuDanismanligi" min="0"><br>
+      </details>
+       
+    </details>
+    
+    
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <details id="kurumsalFaaliyet" style="display: none";>
+      <summary>Kurumsal Faaliyet Ekle</summary>
+      
+      	<details>
+      	<summary>İdari Görev Ekle</summary>
+      
+      		<label for="rektor">Rektör</label>
+      		<input type="checkbox" id="rektor" name="rektor"><br>
+            
+            <label for="rektorYardimcisi">Rektör Yardımcısı</label>
+      		<input type="checkbox" id="rektorYardimcisi" name="rektorYardimcisi"><br>
+            
+            <label for="rektorDanismanligi">Rektör Danışmanlığı</label>
+      		<input type="checkbox" id="rektorDanismanligi" name="rektorDanismanligi"><br>
+            
+            <label for="enstituMudurkugu">Enstitü müdürlüğü</label>
+      		<input type="checkbox" id="enstituMudurkugu" name="enstituMudurkugu"><br>
+            
+            <label for="enstituMudurYardimciligi">Enstitü müdür yardımcılığı</label>
+      		<input type="checkbox" id="enstituMudurYardimciligi" name="enstituMudurYardimciligi"><br>
+            
+            <label for="merkezMudurlugu">Merkez müdürlüğü</label>
+      		<input type="checkbox" id="merkezMudurlugu" name="merkezMudurlugu"><br>
+
+            <label for="merkezMudurYardimciligi">Merkez müdür yardımcılığı</label>
+      		<input type="checkbox" id="merkezMudurYardimciligi" name="merkezMudurYardimciligi"><br>
+            
+            <label for="koordinatorluk">Koordinatörlük</label>
+      		<input type="checkbox" id="koordinatorluk" name="koordinatorluk"><br>
+            
+            <label for="dekanlik">Dekanlık</label>
+      		<input type="checkbox" id="dekanlik" name="dekanlik"><br>
+            
+            <label for="dekanYardimciligi">Dekan yardımcılığı</label>
+      		<input type="checkbox" id="dekanYardimciligi" name="dekanYardimciligi"><br>
+            
+            <label for="bolumBaskanligi">Bölüm başkanlığı</label>
+      		<input type="checkbox" id="bolumBaskanligi" name="bolumBaskanligi"><br>
+            
+            <label for="bolumBaskanYardimciligi">Bölüm başkan yardımcılığı</label>
+      		<input type="checkbox" id="bolumBaskanYardimciligi" name="bolumBaskanYardimciligi"><br>
+            
+            <label for="anabilimDaliBaskanligi">Anabilim dalı başkanlığı</label>
+      		<input type="checkbox" id="anabilimDaliBaskanligi" name="anabilimDaliBaskanligi"><br>
+            
+            <label for="anabilimDaliBaskanYardimciligi">Anabilim dalı başkan yardımcılığı</label>
+      		<input type="checkbox" id="anabilimDaliBaskanYardimciligi" name="anabilimDaliBaskanYardimciligi"><br>
+            
+    
+    </details>
+     
+        <details>
+      	<summary>Kurul veya komisyon üyeliği Ekle</summary>
+        
+        	<details>
+      		<summary>Üniversite Senato Üyeliği Ekle</summary>
+    			<input type="number" id="universiteSenatoUyeligi" name="universiteSenatoUyeligi" min="0"><br>
+        	</details>
+            
+            <details>
+      		<summary>Üniversite Yönetim Kurulu Üyeliği Ekle</summary>
+    			<input type="number" id="universiteYonetimKuruluUyeligi" name="universiteYonetimKuruluUyeligi" min="0"><br>
+        	</details>
+            
+            <details>
+      		<summary>Üniversite Çalışma Grubu Üyeliği (Resmi) Ekle</summary>
+    			<input type="number" id="universiteCalismaGurubuUyeligiResmi" name="universiteCalismaGurubuUyeligiResmi" min="0"><br>
+        	</details>
+            
+            <details>
+      		<summary>Üniversite Çalışma Grubu Üyeliği (Diğer) Ekle</summary>
+    			<input type="number" id="universiteCalismaGurubuUyeligiDiger" name="universiteCalismaGurubuUyeligiDiger" min="0"><br>
+        	</details>
+            
+            <details>
+      		<summary>Fakülte Yönetim Kurulu Üyeliği Ekle</summary>
+    			<input type="number" id="fakulteYonetimKuruluUyeligi" name="fakulteYonetimKuruluUyeligi" min="0"><br>
+        	</details>
+            
+            <details>
+      		<summary>Fakülte Kurulu Üyeliği Ekle</summary>
+    			<input type="number" id="fakulteKuruluUyeligi" name="fakulteKuruluUyeligi" min="0"><br>
+        	</details>
+            
+            <details>
+      		<summary>Fakülte Çalışma Grubu Üyeliği (Resmi) Ekle</summary>
+    			<input type="number" id="fakulteCalismaGurubuUyeligiResmi" name="fakulteCalismaGurubuUyeligiResmi" min="0"><br>
+        	</details>
+            
+            <details>
+      		<summary>Fakülte Çalışma Grubu Üyeliği (Diğer) Ekle</summary>
+    			<input type="number" id="fakulteCalismaGurubuUyeligiDiger" name="fakulteCalismaGurubuUyeligiDiger" min="0"><br>
+        	</details>
+        
+    	</details>
+    
+    
+    	<details>
+      		<summary>Başkanlık Ekle</summary>
+        	
+            <details>
+      		<summary>Konferans Başkanlığı Ekle</summary>
+    			<input type="number" id="konferansBaskanligi" name="konferansBaskanligi" min="0"><br>
+        	</details>
+            
+            <details>
+      		<summary>Çalıştay Başkanlığı Ekle</summary>
+    			<input type="number" id="calistayBaskanligi" name="calistayBaskanligi" min="0"><br>
+        	</details>
+            
+            <details>
+      		<summary>Bilimsel Toplantı başkanlığı Ekle</summary>
+    			<input type="number" id="bilimselToplantiBaskanligi" name="bilimselToplantiBaskanligi" min="0"><br>
+        	</details>
+        
+    	</details>
+         
+         <details>
+      		<summary>Juri Üyeliği (İdari) Ekle</summary>
+    			<input type="number" id="juriUyeligiIdari" name="juriUyeligiIdari" min="0"><br>
+        	</details>
+         
+         <details>
+      		<summary>Hakemlikler (İdari) Ekle</summary>
+    			<input type="number" id="hakemliklerIdari" name="hakemliklerIdari" min="0"><br>
+        	</details>
+            
+            
+            <details>
+      		<summary>Sürekli Eğitim Merkezi (SEM) Faaliyetleri Ekle</summary>
+    			<input type="number" id="SEMFaaliyetleri" name="SEMFaaliyetleri" min="0"><br>
+        	</details>
+            
+                      <details>
+      		<summary>Profesyonel Danışmanlık Faaliyetleri Ekle</summary>
+    			<input type="number" id="ProfesyonelDanismanlikFaaliyetleri" name="ProfesyonelDanismanlikFaaliyetleri" min="0"><br>
+        	</details>
+           <label for="rektorlukMakamınınTesekkurBelgesi">Rektörlük Makamının Teşekkür Belgesi: </label>
+           <input type="checkbox" id="rektorlukMakamınınTesekkurBelgesi" name="rektorlukMakamınınTesekkurBelgesi"><br>
+
+    </details>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    
+    <details id="arastirmaGorevlisiFaaliyeti" style="display: none;">
+      <summary>Araştırma Görevlisi Faaliyeti Ekle</summary>
+      
+      <details> 
+      <summary>Lisans dersleri için dersin öğretim elemanına sağlanan asistanlık faaliyetlerinin toplam saati ekle</summary>
+      <input type="number" id="aGAsistanlikFaaliyetiSayisi" name="aGAsistanlikFaaliyetiSayisi" min="0"><br>
+      </details>
+      
+      
+      <details> 
+      <summary>Kısa sınav, ara sınav ve final sınavları için gözetmenlik faaliyetlerinin toplam saati ekle</summary>
+      <input type="number" id="aGGozetmenlikFaaliyetiSaati" name="aGGozetmenlikFaaliyetiSaati" min="0"><br>
+      </details>
+      
+      <details> 
+      <summary>Araştırma görevlilerinin yüksek lisans ve doktora faaliyetleri ekle</summary>
+      <label>Yüksek lisans ders sayısı</label>
+      <input type="number" id="aGYLDersSayisi" name="aGYLDersSayisi" min="0"><br>
+      <label>Doktora ders sayısı</label>
+      <input type="number" id="aGDoktoraDersSayisi" name="aGDoktoraDersSayisi" min="0"><br>
+      <label>Yüksek lisans akademik çalışma sayısı</label>
+      <input type="number" id="aGYLAkademikCalismaSayisi" name="aGYLAkademikCalismaSayisi" min="0"><br>
+      <label>Doktora akademik çalışma sayısı</label>
+      <input type="number" id="aGDoktoraAkademikCalismaSayisi" name="aGDoktoraAkademikCalismaSayisi" min="0"><br>
+      <label>Harcanan saat</label>
+      <input type="number" id="aGHarcananSaat" name="aGHarcananSaat" min="0"><br>
+      </details>
+      
+      <details> 
+      <summary>Araştırma görevlilerinin tez faaliyetleri saati ekle</summary>
+      <label>Yüksek lisans tez faaliyeti saati</label>
+      <input type="number" id="aGYLTezFaaliyetiSaati" name="aGYLTezFaaliyetiSaati" min="0"><br>
+      <label>Doktora tez faaliyeti saati</label>
+      <input type="number" id="aGDoktoraTezFaaliyetiSaati" name="aGDoktoraTezFaaliyetiSaati" min="0"><br>
+      </details>
+      
+      <details> 
+      <summary>Lisans öğrencileri için danışmanlık faaliyetleri saati ekle</summary>
+      <input type="number" id="aGGLOIDanismanlikFaaliyetiSaati" name="aGGLOIDanismanlikFaaliyetiSaati" min="0"><br>
+      </details>
+      
+      <details>
+      <summary>Koordinatörlüklerdeki görevlendirmeler</summary>
+      <label for="coordinator-task-hours">Saat:</label>
+      <input type="number" id="coordinator-task-hours" name="coordinator-task-hours" min="0">
+      </details>
+
+      <details>
+      <summary>Bölüm görevlendirmeleri</summary>
+      <label for="department-task-hours">Saat:</label>
+      <input type="number" id="department-task-hours" name="department-task-hours" min="0">
+      </details>
+
+      <details>
+      <summary>Fakülte görevlendirmeleri</summary>
+      <label for="faculty-task-hours">Saat:</label>
+      <input type="number" id="faculty-task-hours" name="faculty-task-hours" min="0">
+      </details>
+
+      <details>
+      <summary>Üniversite görevlendirmeleri</summary>
+      <label for="university-task-hours">Saat:</label>
+      <input type="number" id="university-task-hours" name="university-task-hours" min="0">
+      </details>
+      
+    </details>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <details id="tipHocasiFaaliyeti" style="display: none;" >
+      <summary>Klinik Faaliyeti Ekle</summary>
+      
+      
+      <details>
+  <summary>Ortopedi ve Travmatoloji Ana Bilim Dalı için Tıp Fakültesi Mezuniyet Öncesi Öğrenciler ile Tıpta Uzmanlık Öğrencilerine Verilmesi Planlanan Teorik Eğitimi Dışındaki Eğitim Faaliyetleri</summary>
+  <ul>
+    <li>
+      <label for="service-visit-hours">Servis Viziti ve Çalışması (saat):</label>
+      <input type="number" id="service-visit-hours" name="service-visit-hours" min="0">
+    </li>
+    <li>
+      <label for="radiological-evaluation-hours">Radyolojik Değerlendirme Çalışması (saat):</label>
+      <input type="number" id="radiological-evaluation-hours" name="radiological-evaluation-hours" min="0">
+    </li>
+    <li>
+      <label for="case-presentation-hours">Olgu Sunumu ve Günün Özeti (saat):</label>
+      <input type="number" id="case-presentation-hours" name="case-presentation-hours" min="0">
+    </li>
+    <li>
+      <label for="outpatient-clinic-hours">Poliklinik Çalışması (saat):</label>
+      <input type="number" id="outpatient-clinic-hours" name="outpatient-clinic-hours" min="0">
+    </li>
+    <li>
+      <label for="orthopedic-examination-hours">Ortopedik Hastada Genel Muayene (saat):</label>
+      <input type="number" id="orthopedic-examination-hours" name="orthopedic-examination-hours" min="0">
+    </li>
+    <li>
+      <label for="bone-biomechanics-hours">Kemik Biyomekaniği (saat):</label>
+      <input type="number" id="bone-biomechanics-hours" name="bone-biomechanics-hours" min="0">
+    </li>
+    <li>
+      <label for="shoulder-elbow-examination-hours">Omuz ve Dirsek Bağ Lezyonlarında Muayene Yöntemleri (saat):</label>
+        <input type="number" id="shoulder-elbow-examination-hours" name="shoulder-elbow-examination-hours" min="0">
+      </li>
+      <li>
+        <label for="wrist-hand-examination-hours">El bileği ve El Bağ Lezyonlarında Muayene Yöntemleri (saat):</label>
+        <input type="number" id="wrist-hand-examination-hours" name="wrist-hand-examination-hours" min="0">
+      </li>
+      <li>
+        <label for="hip-knee-examination-hours">Kalça ve Diz Bağ Lezyonlarında Muayene Yöntemleri (saat):</label>
+        <input type="number" id="hip-knee-examination-hours" name="hip-knee-examination-hours" min="0">
+      </li>
+      <li>
+        <label for="ankle-foot-examination-hours">Ayak Bileği ve Ayak Bağ Lezyonlarında Muayene Yöntemleri (saat):</label>
+        <input type="number" id="ankle-foot-examination-hours" name="ankle-foot-examination-hours" min="0">
+      </li>
+    </ul>
+  </details>
+  
+  <details>
+    <summary>Genel Cerrahi Stajı Pratik Uygulama Dersleri (Haftalık saatler)</summary>
+    <ul>
+      <li>
+        <input type="checkbox" id="patient-head-education" name="patient-head-education">
+        <label for="patient-head-education">Hasta Başı Eğitimler (8 saat)</label>
+      </li>
+      <li>
+        <input type="checkbox" id="practical-trainings" name="practical-trainings">
+        <label for="practical-trainings">Pratik Eğitimler (9 saat)</label>
+      </li>
+    </ul>
+  </details>
+      
+      <details>
+    <summary>Adli Tıp Anabilim Klinik / Laboratuvar Uygulamaları</summary>
+    <ul>
+      <li>
+        <label for="forensic-examination-hours">Adli muayene (saat):</label>
+        <input type="number" id="forensic-examination-hours" name="forensic-examination-hours" min="0">
+      </li>
+      <li>
+        <label for="forensic-report-writing-hours">Adli Rapor yazımı (saat):</label>
+        <input type="number" id="forensic-report-writing-hours" name="forensic-report-writing-hours" min="0">
+      </li>
+      <li>
+        <label for="bone-age-determination-hours">Kemik yaşı tayini (saat):</label>
+        <input type="number" id="bone-age-determination-hours" name="bone-age-determination-hours" min="0">
+      </li>
+      <li>
+        <label for="sexual-crime-examination-hours">Cinsel suç muayenesi (saat):</label>
+        <input type="number" id="sexual-crime-examination-hours" name="sexual-crime-examination-hours" min="0">
+      </li>
+      <li>
+        <label for="disability-evaluation-hours">Maluliyet ve Engellilik değerlendirmesi (saat):</label>
+        <input type="number" id="disability-evaluation-hours" name="disability-evaluation-hours" min="0">
+      </li>
+      <li>
+        <label for="post-mortem-examination-hours">Ölü muayenesi (saat):</label>
+        <input type="number" id="post-mortem-examination-hours" name="post-mortem-examination-hours" min="0">
+      </li>
+      <li>
+        <label for="forensic-autopsy-hours">Adli Otopsi (saat):</label>
+        <input type="number" id="forensic-autopsy-hours" name="forensic-autopsy-hours" min="0">
+      </li>
+    </ul>
+  </details>
+      
+      <details>
+    <summary>Çocuk Sağlığı ve Hastalıkları Anabilim Dalı mezuniyet öncesi öğrencileri ve mezuniyet sonrası tıpta uzmanlık öğrencilerine yönelik yürütülmekte olan teorik eğitim haricindeki eğitim faaliyetleri</summary>
+    <ul>
+  <li>
+    Yataklı servis ve yoğun bakım hasta başı vizitleri (saat):
+    <input type="number" id="inpatient-visits-hours" name="inpatient-visits-hours" min="0">
+  </li>
+  <li>
+    Ana dal ve yan dal polikliniklerinde pratik ve uygulamalı eğitim
+    <input type="number" id="practical-training-hours" name="practical-training-hours" min="0">
+  </li>
+  <li>
+    İnvaziv girişimler uygulamalı eğitimleri
+    <input type="number" id="invasive-procedures-hours" name="invasive-procedures-hours" min="0">
+  </li>
+  <li>
+    Poliklinik olgu sunumları
+    <input type="number" id="outpatient-case-presentations-hours" name="outpatient-case-presentations-hours" min="0">
+  </li>
+  <li>
+    Servis olgu sunumları
+    <input type="number" id="inpatient-case-presentations-hours" name="inpatient-case-presentations-hours" min="0">
+  </li>
+  <li>
+    Dosya tartışmaları
+    <input type="number" id="file-discussions-hours" name="file-discussions-hours" min="0">
+  </li>
+  <li>
+    Makale tartışmaları
+    <input type="number" id="article-discussions-hours" name="article-discussions-hours" min="0">
+  </li>
+  <li>
+    Sertifikalı kurs programları (Neonatal resüsitasyon programı/ Çocuk temel yaşam desteği kursu/ Çocuk ileri yaşam desteği kursu/ Temel mekanik ventilasyon kursu/ İleri mekanik ventilasyon kursu)
+    <input type="number" id="certified-course-programs-hours" name="certified-course-programs-hours" min="0">
+  </li>
+  <li>
+    İnteraktif eğitimler
+    <input type="number" id="interactive-training-hours" name="interactive-training-hours" min="0">
+  </li>
+  <li>
+    Radyoloji toplantıları
+    <input type="number" id="radiology-meetings-hours" name="radiology-meetings-hours" min="0">
+  </li>
+  <li>
+    İnterdisipliner konseyler (Neonatoloji-perinatoloji/ nöroradyoloji toplantısı/ kardiyovasküler konsey/ toraks konseyi/ nefroloji-üroloji konseyi/ cinsel gelişim farklılıkları bozuklukları konseyi/ tümör konseyi/ genetik toplantıları/ gastro-cerrahi/ gastro-patoloji konseyi)
+    <input type="number" id="interdisciplinary-councils-hours" name="interdisciplinary-councils-hours" min="0">
+  </li>
+  <li>
+    Yoğun bakım mortalite toplantıları
+    <input type="number" id="icu-mortality-meetings-hours" name="icu-mortality-meetings-hours" min="0">
+  </li>
+  <li>
+    Yoğun bakım multidisipliner ekip eğitim toplantıları
+    <input type="number" id="icu-multidisciplinary-team-training-hours" name="icu-multidisciplinary-team-training-hours" min="0">
+  </li>
+  <li>
+    Bilimsel çalışma toplantıları
+    <input type="number" id="scientific-study-meetings-hours" name="scientific-study-meetings-hours" min="0">
+  </li>
+</ul>
+</details>
+      
+<details>
+  <summary>Fiziksel Tıp ve Rehabilitasyon Anabilim dalında verilen teorik eğitim haricindeki klinik eğitim faaliyetleri (Aylık)</summary>
+  <ul>
+    <li><input type="checkbox" id="hastaViziti" name="hastaViziti"> Hasta viziti (20 saat)</li>
+    <li><input type="checkbox" id="buyukHastaViziti" name="buyukHastaViziti"> Büyük hasta viziti (12 saat)</li>
+    <li><input type="checkbox" id="konsey" name="konsey"> Konsey (ayda 2 kez) </li>
+    <li>
+    <label for="ftr-tedavi">FTR tedavi ünitesinde uzmanlık öğrencileri için fizik tedavi ve rehabilitasyon cihazlarının tanıtımı ve pratikte kullanım eğitimi</label>
+    <input type="number" id="ftr-tedavi" name="ftr-tedavi" min="0" placeholder="Saat sayısı">
+  </li>
+  <li>
+    <label for="tedavi-egzersizleri">Tedavi edici egzersizlerin hasta üzerinde pratik gösterilmesi ve uygulanması</label>
+    <input type="number" id="tedavi-egzersizleri" name="tedavi-egzersizleri" min="0" placeholder="Saat sayısı">
+  </li>
+  <li>
+    <label for="fonksiyonel-elektrik-stimulasyon">Eğitim görevlisi gözetiminde uzmanlık öğrencilerinin fonksiyonel elektrik stimülasyon tedavisinin uygulanışının öğretilmesi</label>
+    <input type="number" id="fonksiyonel-elektrik-stimulasyon" name="fonksiyonel-elektrik-stimulasyon" min="0" placeholder="Saat sayısı">
+  </li>
+  <li>
+    <label for="lokal-enjeksiyon">Lokal enjeksiyon uygulamaları</label>
+    <input type="number" id="lokal-enjeksiyon" name="lokal-enjeksiyon" min="0" placeholder="Saat sayısı">
+  </li>
+  <li>
+    <label for="kinezyoterapi">Kinezyoterapi uygulamaları</label>
+    <input type="number" id="kinezyoterapi" name="kinezyoterapi" min="0" placeholder="Saat sayısı">
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary>Ürolojii Anabilim Dalı Eğitim Faaliyetleri</summary>
+  <ul>
+    <li>
+      <label for="hasta-viziti">Hasta viziti</label>
+      <input type="number" id="hasta-viziti" name="hasta-viziti" min="0" placeholder="Saat sayısı">
+    </li>
+    <li>
+      <label for="hasta-konseyi">Hasta konseyi ve literatür saati</label>
+      <input type="number" id="hasta-konseyi" name="hasta-konseyi" min="0" placeholder="Saat sayısı">
+    </li>
+    <li>
+      <label for="eswl-egitimi">ESWL eğitimi</label>
+      <input type="number" id="eswl-egitimi" name="eswl-egitimi" min="0" placeholder="Saat sayısı">
+    </li>
+    <li>
+      <label for="sistoskopi-egitimi">Sistoskopi eğitimi</label>
+      <input type="number" id="sistoskopi-egitimi" name="sistoskopi-egitimi" min="0" placeholder="Saat sayısı">
+    </li>
+    <li>
+      <label for="prostat-biyopsisi-egitimi">Prostat biyopsisi eğitimi</label>
+      <input type="number" id="prostat-biyopsisi-egitimi" name="prostat-biyopsisi-egitimi" min="0" placeholder="Saat sayısı">
+    </li>
+    <li>
+      <label for="urodinami-egitimi">Ürodinami eğitimi</label>
+      <input type="number" id="urodinami-egitimi" name="urodinami-egitimi" min="0" placeholder="Saat sayısı">
+    </li>
+  </ul>
+</details>
+
+
+      
+
+      
+      
+      
+    </details>
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <!-- Öğretmeni kaydet düğmesini oluştur ------------------------------------------------------------------------------>
+    <button>Akademisyeni Kaydet</button>
+    
+    <script src="ogretmenEkle.js"></script>
+    </body>
+</html>

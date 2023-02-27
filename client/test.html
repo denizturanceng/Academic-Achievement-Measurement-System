@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giriş Ekranı</title>
+    <link rel="stylesheet" href="Login.css">
+      
+  </head>
+  <body>
+<table id="users-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+    const tableBody = document.querySelector('#users-table tbody');
+
+    fetch('/users')
+        .then(response => response.json())
+        .then(users => {
+            users.forEach(user => {
+                const row = tableBody.insertRow();
+                const nameCell = row.insertCell();
+                nameCell.innerHTML = user.name;
+                const emailCell = row.insertCell();
+                emailCell.innerHTML = user.email;
+            });
+        })
+        .catch(error => console.error(error));
+</script>

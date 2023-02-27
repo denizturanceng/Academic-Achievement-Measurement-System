@@ -3,8 +3,6 @@ import mongoose from "mongoose";
 const AcademicianSchema = mongoose.Schema({
     
     // CUSTOM INFORMATIONS
-
-
     fullname:{
         type: String,
         required: true
@@ -21,16 +19,61 @@ const AcademicianSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    registration_number:{
+        type: Number,
+        required: true
+    },
+    current_status:{
+        type: String,
+        required:true
+    },
+    academic_title:{
+        type: String,
+        required:true
+    },
+    staff_title:{
+        type: String,
+        required:true
+    },
+    date_of_start:{
+        type: String,
+        required:true
+    },
+    actual_place_of_duty:{
+        type: String,
+        required:true
+    },
+    faculty:{
+        type: String,
+        required:true
+    },
+    department:{
+        type: String,
+        required:true
+    },
+    main_department:{
+        type: String,
+        required:true
+    },
+    staff_location:{
+        type: String,
+        required:true
+    },
 
     //RESEARCHING ACTIVITES
 
     //i = international
     //n = national
+   
     n_essay_count:{
         type: Number,
         required: true
     },
     i_essay_count:{
+        type: Number,
+        required: true
+    },
+    i_q1q2_essay_count:{
         type: Number,
         required: true
     },
@@ -102,13 +145,6 @@ const AcademicianSchema = mongoose.Schema({
         required: true
     },
 
-
-     /*research_assistant_course_assisting:{
-        type: Number,
-        required: true
-    },*/
-     ////////////////////////////////////////////////////////////////////////////////////////////////////
-
     u_student_count:{
         type: Number,
         required: true
@@ -146,33 +182,16 @@ const AcademicianSchema = mongoose.Schema({
         required: true
     },
     
-    u_student_and_thesis_assignment_result:{
+    student_and_thesis_assignment_result:{
         type: Number,
         required: true
     },
 
-    pos_student_and_thesis_assignment_result:{
+    student_club_consultant:{
         type: Number,
         required: true
     },
     
-    phd_student_and_thesis_assignment_result:{
-        type: Number,
-        required: true
-    },
-    u_student_club_consultant:{
-        type: Number,
-        required: true
-    },
-    pos_student_club_consultant:{
-        type: Number,
-        required: true
-    },
-    phd_student_club_consultant:{
-        type: Number,
-        required: true
-    },
-
     // ADMINISTRAVITE ACTIVITIES
     rector:{
         type: Boolean,
@@ -294,14 +313,5 @@ const AcademicianSchema = mongoose.Schema({
         required:true,
         default:0
     }
-
-
-    
-    
-    
-
-
-
-
 })
 export default mongoose.model('Academician',AcademicianSchema)

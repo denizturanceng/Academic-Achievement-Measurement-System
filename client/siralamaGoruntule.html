@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Akademisyen Sıralaması</title>
+<link rel="stylesheet" href="siralamaGoruntule.css">
+  </head>
+  <body>
+
+    <h1>Akademisyen Sıralaması:</h1>
+
+
+
+
+<label for="fakulte">Fakülte:  </label>
+<select id="fakulte" name="fakulte">
+  <option value="-">Tüm fakülteler</option>
+  <option value="fen-edebiyat">Fen Edebiyat Fakültesi</option>
+  <option value="hukuk">Hukuk Fakültesi</option>
+  <option value="muhendislik-ve-mimarlik">Mühendislik ve Mimarlık Fakültesi</option>
+  <option value="saglik-bilimleri">Sağlık Bilimleri Fakültesi</option>
+  <option value="iktisadi-ve-idari-bilimler">İktisadi ve İdari Bilimler Fakültesi</option>
+  <option value="tip">Tıp Fakültesi</option>
+  <option value="eczacilik">Eczacılık Fakültesi</option>
+</select><br>
+
+
+
+<label for="bolum">Bölüm:  </label>
+<select id="bolum" name="bolum" disabled>
+  <!-- Bölüm seçenekleri fakülte seçimine göre dinamik olarak doldurulacak -->
+</select>
+
+
+
+
+<br><br>
+<table id="teacherTable">
+  <tr>
+    <th>İsim</th>
+    <th>Başarı Katsayısı</th>
+    <th>Detaylar</th>
+  </tr>
+  <tr>
+    <td>Ahmet Demir</td>
+    <td>1</td>
+    <td><button onclick="location.href = 'OgretmenGoruntule.html';">...</button></td>
+  </tr>
+  <tr>
+    <td>Ayşe Özkan</td>
+    <td>0.5</td>
+    <td><button onclick="location.href = 'OgretmenGoruntule.html';">...</button></td>
+  </tr>
+  <tr>
+    <td>Mehmet Dönmez</td>
+    <td>1.86</td>
+    <td><button onclick="location.href = 'OgretmenGoruntule.html';">...</button></td>
+  </tr>
+  <tr>
+    <td>Zeynep Atılgan</td>
+    <td>1.74</td>
+    <td><button onclick="location.href = 'OgretmenGoruntule.html';">...</button></td>
+  </tr>
+</table>
+<br>
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <button id="addButton">Ekle</button><br>
+  <button onclick="sortTable()">Alfabetik Sıralama</button><br>
+  <button onclick="sortTableScore()">Başarı Katsayısına Göre Sıralama</button>
+</div>
+<script src="siralamaGoruntule.js"></script>
+
+</body>
+</html>

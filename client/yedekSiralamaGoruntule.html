@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Akademisyen Sıralaması</title>
+<style>
+body {
+    background-color: #add8e6;
+  }
+    select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  label, input {
+    display: inline-block;
+    text-align: left;
+    margin: 10px;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #dddddd;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+
+  th, td {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    border-radius: 10px;
+    color: white;
+    padding: 2px 8px;
+  }
+  
+  button:hover {
+    background-color: green;
+  }
+</style>
+  </head>
+  <body>
+
+    <h1>Öğretmen Sıralaması:</h1>
+
+
+
+
+<label for="fakulte">Fakülte:  </label>
+<select id="fakulte" name="fakulte">
+  <option value="-">Tüm fakülteler</option>
+  <option value="fen-edebiyat">Fen Edebiyat Fakültesi</option>
+  <option value="hukuk">Hukuk Fakültesi</option>
+  <option value="muhendislik-ve-mimarlik">Mühendislik ve Mimarlık Fakültesi</option>
+  <option value="saglik-bilimleri">Sağlık Bilimleri Fakültesi</option>
+  <option value="iktisadi-ve-idari-bilimler">İktisadi ve İdari Bilimler Fakültesi</option>
+  <option value="tip">Tıp Fakültesi</option>
+  <option value="eczacilik">Eczacılık Fakültesi</option>
+</select><br>
+
+
+
+<label for="bolum">Bölüm:  </label>
+<select id="bolum" name="bolum" disabled>
+  <!-- Bölüm seçenekleri fakülte seçimine göre dinamik olarak doldurulacak -->
+</select>
+
+
+
+
+<br><br>
+<table id="teacherTable">
+  <tr>
+    <th>İsim</th>
+    <th>Puan</th>
+    <th>Detaylar</th>
+  </tr>
+  <tr>
+    <td>Ahmet</td>
+    <td>8</td>
+    <td><button onclick="location.href = 'OgretmenGoruntule.html';">...</button></td>
+  </tr>
+  <tr>
+    <td>Ayşe</td>
+    <td>12</td>
+    <td><button onclick="location.href = 'OgretmenGoruntule.html';">...</button></td>
+  </tr>
+  <tr>
+    <td>Mehmet</td>
+    <td>16</td>
+    <td><button onclick="location.href = 'OgretmenGoruntule.html';">...</button></td>
+  </tr>
+  <tr>
+    <td>Zeynep</td>
+    <td>6</td>
+    <td><button onclick="location.href = 'OgretmenGoruntule.html';">...</button></td>
+  </tr>
+</table>
+<br>
+
+<label for="nameInput">İsim:</label><br>
+<input type="text" id="nameInput" name="name"><br>
+<label for="scoreInput">Puan:</label><br>
+<input type="number" id="scoreInput" name="score" min="0"><br>
+<button id="addButton">Ekle</button>
+<button onclick="sortTable()">Sırala alfabetik</button>
+
+
+<button onclick="sortTableScore()">Sırala puan</button>
+
+    <script>
+       
+    function sortTable() {
+        // Tablodaki satırları al
+        var table = document.getElementById("teacherTable");
+        var rows = table.rows;
+
+        // İsim sütununa göre satırları sırala
+        var sortedRows = Array.from(rows).slice(1).sort(function(row1, row2) {
+          var name1 = row1.cells[0].innerHTML;
+          var name2 = row2.cells[0].innerHTML;
+          return name1.localeCompare(name2);
+        });
+
+        // Sıralanmış satırları tablonun içine yerleştir
+        for (var i = 0; i < sortedRows.length; i++) {
+          table.appendChild(sortedRows[i]);
+        }
+      }
+
+
+//---------------------------------------------------------------------------------------
+function sortTableScore() {
+  // Tablodaki satırları al
+  var table = document.getElementById("teacherTable");
+  var rows = table.rows;
+
+  // Puan sütununa göre satırları sırala
+  var sortedRows = Array.from(rows).slice(1).sort(function(row1, row2) {
+    var score1 = row1.cells[1].innerHTML;
+    var score2 = row2.cells[1].innerHTML;
+    return score2 - score1;
+  });
+
+  // Sıralanmış satırları tablonun içine yerleştir
+  for (var i = 0; i < sortedRows.length; i++) {
+    table.appendChild(sortedRows[i]);
+  }
+}
+
+ 
+ //---------------------------------------------------------------------------------------
+
+
+document.getElementById("addButton").addEventListener("click", function() {
+  // İsim ve puan girdilerini al
+  var name = document.getElementById("nameInput").value;
+  var score = document.getElementById("scoreInput").value;
+
+  // Yeni bir satır oluştur
+  var newRow = document.createElement("tr");
+
+  // İsim ve puan değerlerini içeren hücreler oluştur
+  var nameCell = document.createElement("td");
+  nameCell.textContent = name;
+  var scoreCell = document.createElement("td");
+  scoreCell.textContent = score;
+
+  // Detaylar düğmesi için hücre oluştur
+  var buttonCell = document.createElement("td");
+  var button = document.createElement("button");
+  button.textContent = "...";
+  button.onclick = function() {
+    location.href = 'OgretmenGoruntule.html';
+  };
+  buttonCell.appendChild(button);
+
+  // Hücreleri satıra ekle
+  newRow.appendChild(nameCell);
+  newRow.appendChild(scoreCell);
+  newRow.appendChild(buttonCell);
+
+  // Yeni satırı tablo sonuna ekle
+  var table = document.getElementById("teacherTable");
+  table.appendChild(newRow);
+
+   // Girdi alanlarını temizle
+   document.getElementById("nameInput").value = "";
+  document.getElementById("scoreInput").value = "";
+});
+
+//-----------------------------------------------------------------------------
+
+
+
+
+
+  //-- Bölüm seçenekleri fakülte seçimine göre dinamik olarak doldurulacak -->
+const fakulteSelect = document.querySelector('#fakulte');
+const bolumSelect = document.querySelector('#bolum');
+
+fakulteSelect.addEventListener('change', () => {
+  // Fakülte seçimine göre bölüm seçeneklerini doldur
+  const fakulte = fakulteSelect.value;
+  let options = '';
+  switch (fakulte) {
+    case 'fen-edebiyat':
+      options = ` 
+      <option value="-">Tüm Bölümler</option>
+        <option value="coğrafya">Coğrafya</option>
+        <option value="sosyoloji">Sosyoloji</option>
+        <option value="psikoloji">Psikoloji</option>
+        <option value="tarih">Tarih</option>
+      `;
+      break;
+    case 'hukuk':
+      options = `
+       <option value="-">Tüm Bölümler</option>
+        <option value="hukuk">Hukuk</option>
+      `;
+      break;
+    case 'muhendislik-ve-mimarlik':
+      options = `
+       <option value="-">Tüm Bölümler</option>
+        <option value="biyomedikal-muhendisligi">Biyomedikal Mühendisliği</option>
+        <option value="bilgisayar-muhendisligi">Bilgisayar Mühendisliği</option>
+        <option value="elektrik-elektronik-muhendisligi">Elektrik Elektronik Mühendisliği</option>
+        <option value="endustri-muhendisligi">Endüstri Mühendisliği</option>
+        <option value="temel-bilimler-muhendisligi">Temel Bilimler Mühendisliği</option>
+      `;
+      break;
+    case 'saglik-bilimleri':
+      options = `
+       <option value="-">Tüm Bölümler</option>
+        <option value="dil-ve-konusma-terapisi">Dil ve Konuşma Terapisi</option>
+        <option value="fizyoterapi-ve-rehabilitasyon">Fizyoterapi ve Rehabilitasyon</option>
+        <option value="hemşirelik">Hemşirelik</option>
+        <option value="saglik-yonetimi">Sağlık Yönetimi</option>
+        <option value="odyoloji">Odyoloji</option>
+      `;
+      break;
+      case 'eczacilik':
+      options = `
+       <option value="-">Tüm Bölümler</option>
+        <option value="eczacılık">Eczacılık</option>
+      `;
+      break;
+    case 'tip':
+      options = `
+       <option value="-">Tüm Bölümler</option>
+        <option value="tip">Tıp</option>
+      `;
+      break;
+    case 'iktisadi-ve-idari-bilimler':
+      options = `
+      <option value="-">Tüm Bölümler</option>
+        <option value="iktisat">İktisat</option>
+        <option value="isletme">İşletme</option>
+        <option value="yonetim-bilisim-sistemleri">Yönetim Bilişim Sistemleri</option>
+        <option value="uluslararasi-ticaret-ve-isletmecilik">Uluslararası Ticaret ve İşletmecilik</option>
+      `;
+      break;
+       }
+
+  // Seçenekleri bölüm seçimine ekle
+  bolumSelect.innerHTML = options;
+  // Bölüm seçimine etkin hale getir
+  bolumSelect.disabled = false;
+});
+
+
+    </script>
+
+</body>
+</html>

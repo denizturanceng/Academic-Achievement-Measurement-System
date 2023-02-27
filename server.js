@@ -1,19 +1,23 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
+import axios from 'axios'
 import academicianRouter from './Routers/academicianRouter.js'
 import adminRouter from './Routers/adminRouter.js'
+
 import cors from 'cors'
 
 dotenv.config()
-
 const app = express()
 
 app.use(cors())
 app.use(express.json());
+app.use(express.static('client'))
 
 app.use("/academician", academicianRouter);
 app.use("/admin", adminRouter);
+
+
 
 app.listen(5000, () => {
     // connect to database
@@ -22,3 +26,6 @@ app.listen(5000, () => {
       .then(() => console.log("connected to db"))
       .catch((error) => console.log(error));
   });
+
+
+  

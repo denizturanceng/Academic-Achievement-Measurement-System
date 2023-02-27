@@ -2,7 +2,7 @@ import express from "express";
 import bcrypt from 'bcryptjs'
 import Admin from '../models/adminModel.js';
 import Academician from '../models/academicianModel.js'
-import mongoose from "mongoose";
+
 
 
 const router = express.Router();
@@ -10,7 +10,6 @@ const router = express.Router();
 // http://localhost:5000/admin/signup 'a yapılan post isteği
 router.post("/signup", async (req, res)=>{
     try {
-        //console.log(req.body)
         const {username, password } = req.body;
         
         
@@ -57,7 +56,18 @@ router.post("/add_academician", async(req,res)=>{
                email,
                password,
                academician_no,
+               registration_number,
+               current_status,
+               academic_title,
+               staff_title,
+               date_of_start,
+               actual_place_of_duty,
+               faculty,
+               department,
+               main_department,
+               staff_location,
                
+               i_q1q2_essay_count,
                n_essay_count,
                i_essay_count,
                n_book_count,
@@ -85,12 +95,8 @@ router.post("/add_academician", async(req,res)=>{
                u_project_thesis_co_consultant_count,
                pos_project_thesis_co_consultant_count,
                phd_project_thesis_co_consultant_count,
-               u_student_and_thesis_assignment_result,
-               pos_student_and_thesis_assignment_result,
-               phd_student_and_thesis_assignment_result,
-               u_student_club_consultant,
-               pos_student_club_consultant,
-               phd_student_club_consultant,
+               student_and_thesis_assignment_result,
+               student_club_consultant,
 
                rector,
                vice_rector,
@@ -133,7 +139,18 @@ router.post("/add_academician", async(req,res)=>{
             email,
             password : hashedPassword,
             academician_no,
+            registration_number,
+            current_status,
+            academic_title,
+            staff_title,
+            date_of_start,
+            actual_place_of_duty,
+            faculty,
+            department,
+            main_department,
+            staff_location,
             
+            i_q1q2_essay_count,
             n_essay_count,
             i_essay_count,
             n_book_count,
@@ -161,12 +178,8 @@ router.post("/add_academician", async(req,res)=>{
             u_project_thesis_co_consultant_count,
             pos_project_thesis_co_consultant_count,
             phd_project_thesis_co_consultant_count,
-            u_student_and_thesis_assignment_result,
-            pos_student_and_thesis_assignment_result,
-            phd_student_and_thesis_assignment_result,
-            u_student_club_consultant,
-            pos_student_club_consultant,
-            phd_student_club_consultant,
+            student_and_thesis_assignment_result,
+            student_club_consultant,
 
             rector,
             vice_rector,
@@ -231,6 +244,58 @@ router.get('/list_all_academicians', async(req, res)=>{
     res.send(teachers)
 });
 
+// http://localhost:5000/admin/:academician_no ' a yapılan GET isteği
+// router.get('/:academician_no', async(req,res)=>{
+//     const academician_no = parseInt(req.body.academician_no);
+//     if (isNaN(academician_no)) {
+//         return res.status(400).send('Invalid academician no.');
+//         }
+//     Academician.findOne({ academician_no }, (error, teacher) => {
+//         if (error) {
+//             res.status(500).send(error);
+//         } else if (teacher) {
+//             res.send(teacher);
+//         } else {
+//             res.status(404).send('Academician not found.');
+//         }
+//         });
+// })
 
+// http://localhost:5000/admin/sort_by_success_coefficent ' a yapılan GET isteği
+router.get('/sort_by_success_coefficent', async(req,res)=>{
+    
+    Academician.find().sort({success_coefficient: -1}).exec((error, teachers) => {
+        if (error) {
+            res.status(500).send(error);
+        } else if (teachers) {
+            res.send(teachers);
+        } else {
+            res.status(404).send('Academician not found.');
+        }
+    });
+})
+
+// http://localhost:5000/admin/get-less-than-1
+router.get('/get-less-than-1', (req, res) => {
+    Academician.find({ success_coefficient: { $lt: 1 } }).sort({ success_coefficient: 1 }).exec((err, staff) => {
+        if (err) {
+          return res.status(500).json({ error: err });
+        }
+        res.json(staff);
+      });
+    });
+
+
+// http://localhost:5000/admin/get-greater-than-1
+router.get('/get-greater-than-1', (req, res) => {
+Academician.find({ $or: [{ success_coefficient: 1 }, { success_coefficient: { $gt: 1 } }] }).sort({ success_coefficient: -1 }).exec((err, staff) => {
+    if (err) {
+      return res.status(500).json({ error: err });
+    }
+    res.json(staff);
+  });
+});
+
+  
 
 export default router;
