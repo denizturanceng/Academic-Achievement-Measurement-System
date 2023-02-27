@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Öğretmen Sıralaması</title>
+<link rel="stylesheet" href="siralamaGoruntule.css">
+  </head>
+  <body>
+
+    <h1>Öğretmen Sıralaması:</h1>
+
+
+
+
+<label for="fakulte">Fakülte:  </label>
+<select id="fakulte" name="fakulte">
+  <option value="-">Tüm fakülteler</option>
+  <option value="fen-edebiyat">Fen Edebiyat Fakültesi</option>
+  <option value="hukuk">Hukuk Fakültesi</option>
+  <option value="muhendislik-ve-mimarlik">Mühendislik ve Mimarlık Fakültesi</option>
+  <option value="saglik-bilimleri">Sağlık Bilimleri Fakültesi</option>
+  <option value="iktisadi-ve-idari-bilimler">İktisadi ve İdari Bilimler Fakültesi</option>
+  <option value="tip">Tıp Fakültesi</option>
+  <option value="eczacilik">Eczacılık Fakültesi</option>
+</select><br>
+
+
+
+<label for="bolum">Bölüm:  </label>
+<select id="bolum" name="bolum" disabled>
+  <!-- Bölüm seçenekleri fakülte seçimine göre dinamik olarak doldurulacak -->
+</select>
+
+
+
+
+<br><br>
+<table id="teacherTable">
+  <tr>
+    <th>İsim</th>
+    <th>Puan</th>
+    <th>Detaylar</th>
+  </tr>
+  <tr>
+    <td>Ahmet</td>
+    <td>8</td>
+    <td><button onclick="location.href = 'OgretmenGoruntule.html';">...</button></td>
+  </tr>
+  <tr>
+    <td>Ayşe</td>
+    <td>12</td>
+    <td><button onclick="location.href = 'OgretmenGoruntule.html';">...</button></td>
+  </tr>
+  <tr>
+    <td>Mehmet</td>
+    <td>16</td>
+    <td><button onclick="location.href = 'OgretmenGoruntule.html';">...</button></td>
+  </tr>
+  <tr>
+    <td>Zeynep</td>
+    <td>6</td>
+    <td><button onclick="location.href = 'OgretmenGoruntule.html';">...</button></td>
+  </tr>
+</table>
+<br>
+
+<label for="nameInput">İsim:</label><br>
+<input type="text" id="nameInput" name="name"><br>
+<label for="scoreInput">Puan:</label><br>
+<input type="number" id="scoreInput" name="score" min="0"><br>
+<button id="addButton">Ekle</button>
+<button onclick="sortTable()">Sırala alfabetik</button>
+
+
+<button onclick="sortTableScore()">Sırala puan</button>
+    
+
+<script src="siralamaGoruntule.js"></script>
+
+</body>
+</html>

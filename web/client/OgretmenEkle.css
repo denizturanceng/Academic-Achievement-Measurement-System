@@ -1,0 +1,85 @@
+/* Öğelerin başlangıçta tamamen saydam olmasını sağlar */
+* {
+  opacity: 1;
+}
+
+/* Öğelerin yüklenme sırasında yavaş yavaş belirginleşmesini sağlar */
+* {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+body {
+    background-color: #ADD8E6;
+    margin: auto;
+    width: 50%;
+    border-radius: 25px;
+    font-family: Arial, sans-serif;
+  }
+  select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  label, input {
+    display: inline-block;
+    text-align: left;
+    margin: 10px;
+  }
+  
+  details {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  button {
+    display: block;
+    background-color: #4CAF50;
+    font-family: Arial, sans-serif;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  
+  input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  
+  /* Fare üzerine gelindiğinde seçeneklerin rengini değiştir */
+  details:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Kaydet düğmesine fare üzerine gelindiğinde renk değişimi yap */
+  button:hover {
+    background-color: #45a049;
+  }
+  

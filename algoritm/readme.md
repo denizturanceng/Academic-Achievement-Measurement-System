@@ -1,1 +1,0 @@
-Algoritma burada yazılır.

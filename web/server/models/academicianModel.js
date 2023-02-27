@@ -26,11 +26,16 @@ const AcademicianSchema = mongoose.Schema({
 
     //i = international
     //n = national
+   
     n_essay_count:{
         type: Number,
         required: true
     },
     i_essay_count:{
+        type: Number,
+        required: true
+    },
+    i_q1q2_essay_count:{
         type: Number,
         required: true
     },
@@ -146,33 +151,16 @@ const AcademicianSchema = mongoose.Schema({
         required: true
     },
     
-    u_student_and_thesis_assignment_result:{
+    student_and_thesis_assignment_result:{
         type: Number,
         required: true
     },
 
-    pos_student_and_thesis_assignment_result:{
+    student_club_consultant:{
         type: Number,
         required: true
     },
     
-    phd_student_and_thesis_assignment_result:{
-        type: Number,
-        required: true
-    },
-    u_student_club_consultant:{
-        type: Number,
-        required: true
-    },
-    pos_student_club_consultant:{
-        type: Number,
-        required: true
-    },
-    phd_student_club_consultant:{
-        type: Number,
-        required: true
-    },
-
     // ADMINISTRAVITE ACTIVITIES
     rector:{
         type: Boolean,
@@ -294,14 +282,5 @@ const AcademicianSchema = mongoose.Schema({
         required:true,
         default:0
     }
-
-
-    
-    
-    
-
-
-
-
 })
 export default mongoose.model('Academician',AcademicianSchema)

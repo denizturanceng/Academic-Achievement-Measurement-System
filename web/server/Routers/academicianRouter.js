@@ -1,5 +1,5 @@
 import express from "express";
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
 import Academician from '../models/academicianModel.js';
 import mongoose from "mongoose";
 

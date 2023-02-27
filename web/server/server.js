@@ -22,3 +22,6 @@ app.listen(5000, () => {
       .then(() => console.log("connected to db"))
       .catch((error) => console.log(error));
   });
+
+
+  
